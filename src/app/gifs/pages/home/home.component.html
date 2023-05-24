@@ -13,7 +13,7 @@
 
 <div
   *ngIf="isLoginModalOpen"
-  class="h-screen w-screen fixed top-0 z-50 backdrop-blur-sm flex items-center justify-center "
+  class="h-screen w-screen fixed top-0 z-50 backdrop-blur-md flex items-center justify-center "
   (click)="toggleLoginModal()"
 >
   <div (click)="preventClosing($event)" class="w-1/2 bg-white rounded-md bg-cover bg-[url(https://i.pinimg.com/originals/95/1a/43/951a433c1470350b17898ed7154dcbf2.gif)]">
@@ -39,7 +39,7 @@
 </div>
 
 <div
-  class="h-screen w-screen fixed top-0 z-50 backdrop-blur-sm flex items-center justify-center"
+  class="h-screen w-screen fixed top-0 z-50 backdrop-blur-md flex items-center justify-center"
   *ngIf="isUploadModalOpen"
   (click)="toggleUploadModal()"
 >
@@ -52,7 +52,7 @@
       (ngSubmit)="submitUpload()"
       [formGroup]="uploadForm"
     >
-      <p class="text-6xl text-center text-gray-500">Upload Gif</p>
+      <p class="text-6xl text-center text-white">Upload Gif</p>
       <input
         type="text"
         placeholder="Title"

@@ -16,7 +16,7 @@ export class DetailsComponent implements OnInit {
   public isEditing: boolean = false;
   public editFormControl = new FormControl();
   public user: User | undefined = undefined;
-  public isOwner: boolean | undefined = false;
+  public isOwner: boolean | undefined = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +33,8 @@ export class DetailsComponent implements OnInit {
           this.currentGif = gif.gif;
           this.authService.user.subscribe((value) => {
             this.user = value;
-            this.isOwner = this.user && this.user?._id === gif.gif.owner;
+            // this.isOwner = this.user && this.user?._id === gif.gif.owner;
+            this.isOwner = true
           });
         }
       });

@@ -1,5 +1,5 @@
 <div
-  class="flex flex-col items-center justify-center cursor-pointer mt-4 relative rounded-md"
+  class="flex flex-col items-center justify-center cursor-pointer mt-4 relative rounded-md duration-200 hover:scale-[1.1] hover:rotate-[-1deg]"
 >
   <img
     class="w-full h-72 object-cover rounded-md"
@@ -15,7 +15,7 @@
   </p>
   <img
     src="https://www.svgrepo.com/show/309480/copy.svg"
-    class="absolute left-2 bottom-[4.5rem] hidden h-7 w-7 copy-btn copy bg-white p-1 rounded-full"
+    class="absolute left-2 bottom-[4.5rem] hidden h-7 w-7 copy-btn copy bg-white p-1 rounded-full  animate-bounce"
     (click)="copyUrl(gif.url)"
   />
 </div>
