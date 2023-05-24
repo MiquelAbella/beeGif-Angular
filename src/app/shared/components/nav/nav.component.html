@@ -9,24 +9,25 @@
       [formControl]="searchInput"
       (input)="searchGifs()"
       type="text"
-      class="mr-6 px-4 py-1 outline-none rounded-md"
+      class="mr-6 px-4 py-1 w-80 outline-none rounded-md"
+      placeholder="Search"
     />
+  </div>
 
-    <ng-template #logoutBtn>
-      <button
-        (click)="logout()"
-        class="mr-6 py-1 px-4 text-white border border-white hover:border-cyan-600 hover:bg-cyan-600 duration-200 rounded-md cursor-pointer"
-      >
-        Logout
-      </button>
-    </ng-template>
-
+  <ng-template #logoutBtn>
     <button
-      *ngIf="!user; else logoutBtn"
-      (click)="toggleLoginModal()"
+      (click)="logout()"
       class="mr-6 py-1 px-4 text-white border border-white hover:border-cyan-600 hover:bg-cyan-600 duration-200 rounded-md cursor-pointer"
     >
-      Login
+      Logout
     </button>
-  </div>
+  </ng-template>
+
+  <button
+    *ngIf="!user; else logoutBtn"
+    (click)="toggleLoginModal()"
+    class="mr-6 py-1 px-4 text-white border border-white hover:border-cyan-600 hover:bg-cyan-600 duration-200 rounded-md cursor-pointer"
+  >
+    Login
+  </button>
 </div>

@@ -1,22 +1,21 @@
 <div
-  class="flex flex-col items-center justify-center  cursor-pointer mt-4 relative rounded-sm"
+  class="flex flex-col items-center justify-center cursor-pointer mt-4 relative rounded-md"
 >
   <img
-    class="w-full h-72 object-cover"
+    class="w-full h-72 object-cover rounded-md"
     src="{{ gif.url }}"
     [routerLink]="['/details', gif._id]"
   />
   <p class="py-4 text-white truncate w-4/5">{{ gif.title }}</p>
   <p
-    class="absolute -right-2 -top-2 p-2 rounded-3xl truncate text-white text-xs shadow-md"
+    class="absolute -right-4 -top-2 p-2 rounded-3xl truncate text-white text-xs shadow-md capitalize rotate-[20deg]"
     [ngClass]="getBackground(gif.tag)"
   >
     {{ gif.tag }}
   </p>
-  <p
-    class="absolute left-2 bottom-[4.5rem] p-2 rounded-3xl hidden truncate text-xs shadow-md bg-indigo-600 text-white copy copy-btn"
+  <img
+    src="https://www.svgrepo.com/show/309480/copy.svg"
+    class="absolute left-2 bottom-[4.5rem] hidden h-7 w-7 copy-btn copy bg-white p-1 rounded-full"
     (click)="copyUrl(gif.url)"
-  >
-    Copy
-  </p>
+  />
 </div>

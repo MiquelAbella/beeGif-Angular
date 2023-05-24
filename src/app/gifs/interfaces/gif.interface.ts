@@ -21,7 +21,12 @@ export interface editGifsResponse {
   updatedGif: Gif;
 }
 
-
 export interface deleteGifsResponse {
   ok: boolean;
+}
+
+export interface uploadFormValues {
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+  owner?: string | null | undefined;
 }

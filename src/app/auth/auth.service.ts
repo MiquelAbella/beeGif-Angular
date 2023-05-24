@@ -31,6 +31,21 @@ export class AuthService {
       );
   }
 
+  register(formValues: FormValues): Observable<LoginResponse | undefined> {
+    return this.http
+      .post<LoginResponse>(`${this.baseUrl}/register`, {
+        ...formValues,
+      })
+      .pipe(
+        tap((res) => console.log(res.user)),
+        tap((res) => this.user.next(res.user)),
+        catchError((error) => {
+          console.log(error);
+          return of(undefined);
+        })
+      );
+  }
+
   logout() {
     this.user.next(undefined);
   }

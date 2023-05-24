@@ -7,6 +7,7 @@ import {
   GifsResponse,
   deleteGifsResponse,
   editGifsResponse,
+  uploadFormValues,
 } from '../interfaces/gif.interface';
 import { Observable, catchError, of } from 'rxjs';
 
@@ -63,7 +64,9 @@ export class GifsService {
       );
   }
 
-  public deleteGif(id: string | undefined): Observable<deleteGifsResponse | undefined> {
+  public deleteGif(
+    id: string | undefined
+  ): Observable<deleteGifsResponse | undefined> {
     return this.http
       .delete<deleteGifsResponse | undefined>(`${BASE_URL}/${id}`)
       .pipe(
@@ -72,5 +75,17 @@ export class GifsService {
           return of(undefined);
         })
       );
+  }
+
+  public uploadGif(uploadFormValues: uploadFormValues) {
+    this.http
+      .post<GifResponse>(`${BASE_URL}/addfromurl`, uploadFormValues)
+      .subscribe((res) => {
+        if (res.ok) {
+          this.gifList = [res.gif, ...this.gifList];
+        } else {
+          this.gifList = [];
+        }
+      });
   }
 }
