@@ -1,0 +1,31 @@
+<div class="bg-[#161519] pt-20">
+  <gifs-tags></gifs-tags>
+</div>
+<gifs-container [gifs]="allGifs"></gifs-container>
+
+<div
+  *ngIf="isLoginModalOpen"
+  class="h-screen w-screen fixed top-0 z-50 backdrop-blur-sm flex items-center justify-center"
+  (click)="toggleLoginModal()"
+>
+  <div (click)="preventClosing($event)" class="w-1/2 bg-white rounded-md">
+    <ng-template #registerModal>
+      <register-modal></register-modal>
+      <p
+        (click)="toggleIsLoginAndRegister()"
+        class="w-full text-right cursor-pointer mb-6 pr-6"
+      >
+        I have an account . . . Login!
+      </p>
+    </ng-template>
+
+    <login-modal *ngIf="isLogging; else registerModal"> </login-modal>
+    <p
+      *ngIf="isLogging"
+      (click)="toggleIsLoginAndRegister()"
+      class="w-full text-right cursor-pointer mb-6 pr-6"
+    >
+      I don't have an account . . . Register!
+    </p>
+  </div>
+</div>

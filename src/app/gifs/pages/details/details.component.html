@@ -1,0 +1,61 @@
+<div
+  *ngIf="!currentGif; else gif"
+  class="absolute text-white top-0 bottom-0 left-0 right-0 m-auto"
+>
+  No Gif to show with this id
+</div>
+
+<ng-template #gif>
+  <div
+    class="pt-20 h-screen bg-[#161519] text-white flex items-center justify-center flex-col gap-4"
+  >
+    <div class="h-full gap-4 flex flex-col items-center justify-center">
+      <img class="md:h-2/3 w-4/5 md:w-2/3 object-cover" [src]="currentGif?.url" />
+      <ng-template #editInput>
+        <input
+          type="text"
+          class="border-b border-white bg-transparent w-2/3 outline-none"
+          [formControl]="editFormControl"
+          placeholder="Write the new title"
+        />
+      </ng-template>
+
+      <p *ngIf="!isEditing; else editInput">{{ currentGif?.title }}</p>
+      <div *ngIf="isOwner" class="w-full">
+        <ng-template #edit>
+          <div class="flex items-center justify-end gap-6 w-full">
+            <button
+              (click)="editGifTitle()"
+              class="py-2 px-4 border border-cyan-600 hover:bg-cyan-600 duration-200 rounded-md text-white"
+            >
+              Save
+            </button>
+            <button
+              (click)="toggleIsEditing()"
+              class="py-2 px-4 border border-red-600 hover:bg-red-600 duration-200 rounded-md text-white"
+            >
+              Cancel
+            </button>
+          </div>
+        </ng-template>
+        <div
+          *ngIf="!isEditing && isOwner; else edit"
+          class="flex items-center justify-end gap-6 w-full"
+        >
+          <button
+            (click)="toggleIsEditing()"
+            class="py-2 px-4 border border-cyan-600 hover:bg-cyan-600 duration-200 rounded-md text-white"
+          >
+            Edit
+          </button>
+          <button
+            (click)="deleteGif()"
+            class="py-2 px-4 border border-red-600 hover:bg-red-600 duration-200 rounded-md text-white"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

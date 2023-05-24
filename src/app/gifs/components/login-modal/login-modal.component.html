@@ -1,0 +1,25 @@
+<form
+  class="h-full w-full p-6 flex flex-col gap-6"
+  (ngSubmit)="onSubmit()"
+  [formGroup]="loginForm"
+>
+  <p class="text-6xl text-center text-gray-500">Login</p>
+  <input
+    type="text"
+    placeholder="email"
+    class="w-full border-b border-gray-500 text-lg outline-none"
+    formControlName="email"
+  />
+  <input
+    type="password"
+    placeholder="password"
+    class="w-full border-b border-gray-500 text-lg outline-none"
+    formControlName="password"
+  />
+  <button
+    type="submit"
+    class="py-1 px-4 mt-6 bg-cyan-600 text-white duration-200 rounded-md cursor-pointer"
+  >
+    Login
+  </button>
+</form>

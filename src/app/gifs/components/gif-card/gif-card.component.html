@@ -1,0 +1,22 @@
+<div
+  class="flex flex-col items-center justify-center  cursor-pointer mt-4 relative rounded-sm"
+>
+  <img
+    class="w-full h-72 object-cover"
+    src="{{ gif.url }}"
+    [routerLink]="['/details', gif._id]"
+  />
+  <p class="py-4 text-white truncate w-4/5">{{ gif.title }}</p>
+  <p
+    class="absolute -right-2 -top-2 p-2 rounded-3xl truncate text-white text-xs shadow-md"
+    [ngClass]="getBackground(gif.tag)"
+  >
+    {{ gif.tag }}
+  </p>
+  <p
+    class="absolute left-2 bottom-[4.5rem] p-2 rounded-3xl hidden truncate text-xs shadow-md bg-indigo-600 text-white copy copy-btn"
+    (click)="copyUrl(gif.url)"
+  >
+    Copy
+  </p>
+</div>
