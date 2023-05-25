@@ -31,9 +31,12 @@
     Login
   </button>
   <div
-  *ngIf="isByeActive"
-    class="fixed top-0 bottom-0 right-0 left-0 m-auto flex items-center justify-center h-screen"
+    *ngIf="isByeActive"
+    class="fixed top-0 bottom-0 right-0 left-0 m-auto flex items-center justify-center h-screen backdrop-brightness-0"
   >
-    <p class="text-white text-center text-[15vw] animate-ping">Bye!</p>
+    <img
+    class="rounded-full h-[30vw] w-[30vw]"
+      src="https://media.tenor.com/JfEVkksoBzQAAAAM/despicable-me-minion.gif"
+    />
   </div>
 </div>

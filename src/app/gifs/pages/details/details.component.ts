@@ -35,8 +35,8 @@ export class DetailsComponent implements OnInit {
           this.currentGif = gif.gif;
           this.authService.user.subscribe((value) => {
             this.user = value;
-            // this.isOwner = this.user && this.user?._id === gif.gif.owner;
-            this.isOwner = true;
+            this.isOwner = this.user && this.user?._id === gif.gif.owner;
+            // this.isOwner = true;
           });
         }
       });
