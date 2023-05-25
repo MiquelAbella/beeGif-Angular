@@ -15,7 +15,13 @@
   </p>
   <img
     src="https://www.svgrepo.com/show/309480/copy.svg"
-    class="absolute left-2 bottom-[4.5rem] hidden h-7 w-7 copy-btn copy bg-white p-1 rounded-full  animate-bounce"
+    class="absolute left-2 bottom-[4.5rem] hidden h-7 w-7 copy-btn copy bg-white p-1 rounded-full animate-bounce"
     (click)="copyUrl(gif.url)"
   />
+  <p
+  *ngIf="activeToast === gif._id"
+    class="absolute text-white bg-yellow-600 bottom-[4.5rem] left-12 px-4 py-2 rounded-md"
+  >
+    Copied url!
+  </p>
 </div>

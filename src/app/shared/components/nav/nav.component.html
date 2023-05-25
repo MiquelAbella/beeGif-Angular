@@ -30,4 +30,10 @@
   >
     Login
   </button>
+  <div
+  *ngIf="isByeActive"
+    class="fixed top-0 bottom-0 right-0 left-0 m-auto flex items-center justify-center h-screen"
+  >
+    <p class="text-white text-center text-[15vw] animate-ping">Bye!</p>
+  </div>
 </div>

@@ -11,6 +11,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 })
 export class LoginModalComponent {
   public user: User | null = null;
+  public isError: boolean = false;
   public loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
@@ -34,6 +35,11 @@ export class LoginModalComponent {
       if (res?.ok) {
         this.user = res.user;
         this.toggleLoginModal();
+      } else {
+        this.isError = true;
+        setTimeout(() => {
+          this.isError = false;
+        }, 3000);
       }
     });
   }

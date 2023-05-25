@@ -13,11 +13,12 @@ import { User } from 'src/app/gifs/interfaces/user.interface';
 export class NavComponent implements OnInit {
   public searchInput = new FormControl('');
   public user: User | undefined = undefined;
+  public isByeActive: boolean = false;
 
   constructor(
     private sharedService: SharedService,
     private gifsService: GifsService,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +43,9 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    this.isByeActive = true;
+    setTimeout(() => {
+      this.isByeActive = false;
+    }, 2000);
   }
 }

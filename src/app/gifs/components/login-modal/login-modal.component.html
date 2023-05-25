@@ -1,5 +1,5 @@
 <form
-  class="h-full w-full p-6 flex flex-col gap-6 "
+  class="h-full w-full p-6 flex flex-col gap-6"
   (ngSubmit)="onSubmit()"
   [formGroup]="loginForm"
 >
@@ -22,4 +22,13 @@
   >
     Login
   </button>
+  <div
+    *ngIf="isError"
+    class="fixed top-0 bottom-0 right-0 left-0 m-auto flex flex-col items-center justify-center backdrop-brightness-[25%]"
+  >
+    <img src="https://media.tenor.com/7GAiCuX3YiYAAAAC/minions.gif" class="rounded-md mt-4"/>
+    <p class="text-[3vw] text-white px-6 py-3 bg-red-500 rounded-md mt-6">
+      INVALID CREDENTIALS
+    </p>
+  </div>
 </form>

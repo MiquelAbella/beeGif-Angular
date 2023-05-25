@@ -17,6 +17,8 @@ export class DetailsComponent implements OnInit {
   public editFormControl = new FormControl();
   public user: User | undefined = undefined;
   public isOwner: boolean | undefined = true;
+  public isHovered: boolean = false;
+  public editedMessageVisible: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +36,7 @@ export class DetailsComponent implements OnInit {
           this.authService.user.subscribe((value) => {
             this.user = value;
             // this.isOwner = this.user && this.user?._id === gif.gif.owner;
-            this.isOwner = true
+            this.isOwner = true;
           });
         }
       });
@@ -58,6 +60,10 @@ export class DetailsComponent implements OnInit {
           }
         });
         this.isEditing = false;
+        this.editedMessageVisible = true;
+        setTimeout(() => {
+          this.editedMessageVisible = false;
+        }, 2000);
       }
     });
   }
@@ -73,5 +79,12 @@ export class DetailsComponent implements OnInit {
         this.router.navigate(['/']);
       }
     });
+  }
+
+  hover() {
+    this.isHovered = true;
+  }
+  unHover() {
+    this.isHovered = false;
   }
 }

@@ -9,6 +9,7 @@ import { Gif } from '../../interfaces/gif.interface';
 export class GifCardComponent {
   @Input()
   public gif!: Gif;
+  public activeToast: string = '';
 
   getBackground(tag: string): string {
     switch (tag) {
@@ -29,5 +30,11 @@ export class GifCardComponent {
 
   public copyUrl(url: string): void {
     navigator.clipboard.writeText(url);
+
+    this.activeToast = this.gif._id;
+
+    setTimeout(() => {
+      this.activeToast = '';
+    }, 1000);
   }
 }
